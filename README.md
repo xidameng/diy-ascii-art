@@ -36,5 +36,8 @@ pictures, gifs and videos for conversion
 ### GUI-APP
 Desktop software with Graphical User Interface(GUI) that you can run without using terminal and commands
 
+### demo
+Open the `.txt` file in the folder and open it with browser, zoom out to see the demo ( if you are on Github, then click `raw` to view the demo)
+
 ## Credit 
 Credit to https://github.com/MoYouNing/ImageToTxt for his work
