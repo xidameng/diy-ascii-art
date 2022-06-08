@@ -2,7 +2,11 @@ import numpy as np
 from PIL import Image
 import sys
 
-print("This program takes in 2 arguments, 1st is the image file(string), 2nd is the character pattern(a string in the order from loose to dense, seperated by ; ")
+print("## This program takes in 3 arguments")
+print("- 1st is the image file(string)")
+print("- 2nd is the character pattern(a string in the order from loose to dense)")
+print("  Please seperate them using ';' ")
+print("- 3rd is the resolution(default at 300p)")
 
 txtname = ''
 imagefile = ''
@@ -10,17 +14,20 @@ charPattern = ''
 
 imagefile = sys.argv[1]
 charPattern = sys.argv[2]
+resolution = int(sys.argv[3])
 print(imagefile)
 print(charPattern)
 str = charPattern.split(";")
 print(str)
-txtname = imagefile+'.txt'
+txtname = imagefile.split('/')[-1]
+txtname = txtname.split('.')[0]+'.txt'
+print(txtname)
 
 
 
 im = Image.open(imagefile)
-im = im.resize((150, 150), Image.ANTIALIAS)
-#im = im.resize((300, 300), Image.ANTIALIAS)
+im = im.resize((resolution, resolution), Image.ANTIALIAS)
+#im = im.resize((resolution, resolution), Image.ANTIALIAS)
 image = im.convert('L')
 image = np.array(image)
 if len(str) == 3:
@@ -50,3 +57,4 @@ elif len(str) == 2:
 else:
     print("Only support 2 char / 3 char pattern now! ")
 
+print("job done")
